@@ -3,7 +3,6 @@ import './App.css';
 function App() {
   return (
     <div className="app">
-      <div className="app-title">CV Builder</div>
       <div className="app-container">
         <div id="left-button-row">
           <button className="app-btn">General Information</button>
