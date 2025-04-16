@@ -13,7 +13,7 @@
   height:700px; 
   width: 1000px;
   grid-template-columns: 1.5fr 1fr;
-  grid-template-rows: 60px 2fr;
+  grid-template-rows: 40px 1fr;
   gap: 16px
 }
 

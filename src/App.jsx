@@ -1,5 +1,7 @@
 import './App.css';
 import { useState } from 'react';
+import ButtonGroup from './components/ButtonGroup.jsx';
+
 
 function App() {
   const [activeForm, setActiveForm] = useState('general');
@@ -8,10 +10,8 @@ function App() {
   return (
     <div className="app">
       <div className="app-container">
-        <div id="left-button-row">
-          <button className="app-btn" id="general-btn" onClick={() => setActiveForm('general')}>General Information</button>
-          <button className="app-btn" id="education-btn" onClick={() => setActiveForm('education')}>Education Experience</button>
-          <button className="app-btn" id="practical-btn" onClick={() => setActiveForm('practical')}>Practical Experience</button>
+        <div>
+          <ButtonGroup setActiveForm={setActiveForm} />
         </div>
         <div id="right-button-row"></div>
         <div id="left-card-row">
