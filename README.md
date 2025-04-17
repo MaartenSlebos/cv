@@ -7,3 +7,5 @@ It's a project done during The Odin Project
 
 Used Vite to create the boilerplate <br>
 Hetzner VPS + Coolify to deploy 
+
+[visit the site](https://cv.martinscape.cc/)
