@@ -1,11 +1,84 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ButtonGroup from './components/ButtonGroup.jsx';
 import FormRenderer from './components/FormRenderer.jsx';
 
+function EditableSection({ title, data, fields, onSave }) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editData, setEditData] = useState(data);
+
+  // Update editData when data prop changes
+  useEffect(() => {
+    setEditData(data);
+  }, [data]);
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setEditData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSave(editData);
+    setIsEditing(false);
+  };
+
+  // Check if there's any data to edit
+  const hasData = Object.values(data).some(value => value && value.trim() !== '');
+
+  return (
+    <div className={`right-card-section ${isEditing ? 'editing' : ''}`}>
+      <h3>{title}</h3>
+      {isEditing ? (
+        <form onSubmit={handleSubmit} className="inline-edit-form">
+          {Object.entries(fields).map(([key, label]) => (
+            <div key={key} className="inline-form-field">
+              <input
+                id={key}
+                type={key === 'email' ? 'email' : key === 'phone' ? 'tel' : key.includes('year') ? 'number' : 'text'}
+                value={editData[key] || ''}
+                onChange={handleChange}
+                placeholder={`Enter ${label}`}
+                {...(key.includes('year') ? { min: "2000", max: "2100" } : {})}
+              />
+            </div>
+          ))}
+          <div className="inline-form-buttons">
+            <button type="submit" className="save-btn">Save</button>
+            <button 
+              type="button" 
+              className="cancel-btn" 
+              onClick={() => {
+                setIsEditing(false);
+                setEditData(data);
+              }}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      ) : (
+        <>
+          {Object.entries(data).map(([key, value]) => (
+            <p key={key}>{value || ''}</p>
+          ))}
+          {hasData && (
+            <button onClick={() => setIsEditing(true)} className="edit-btn">
+              Edit
+            </button>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
 function App() {
-  const [activeForm, setActiveForm] = useState('general'); 
-  const [activeButton, setActiveButton] = useState('general'); 
+  const [activeForm, setActiveForm] = useState('general');
+  const [activeButton, setActiveButton] = useState('general');
   const [submittedData, setSubmittedData] = useState({
     general: {},
     education: {},
@@ -19,6 +92,33 @@ function App() {
     }));
   };
 
+  const sections = {
+    general: {
+      title: "General Information",
+      fields: {
+        name: "Name",
+        email: "Email",
+        phone: "Phone"
+      }
+    },
+    education: {
+      title: "Education Experience",
+      fields: {
+        school: "School",
+        study: "Study",
+        graduationDate: "Graduation Year"
+      }
+    },
+    practical: {
+      title: "Practical Experience",
+      fields: {
+        company: "Company",
+        role: "Role",
+        year: "Year"
+      }
+    }
+  };
+
   return (
     <div className="app">
       <div className="app-container">
@@ -29,33 +129,24 @@ function App() {
         />
         <div id="left-card-row">
           <div id="left-card">
-            <FormRenderer 
-              key={activeForm} 
-              activeForm={activeForm} 
-              updateSubmittedData={updateSubmittedData} 
+            <FormRenderer
+              key={activeForm}
+              activeForm={activeForm}
+              updateSubmittedData={updateSubmittedData}
             />
           </div>
         </div>
         <div id="right-card-row">
           <div id="right-card">
-            <div id="right-card-general">
-              <h3>General Information</h3>
-              <p>{submittedData.general.name || ''}</p>
-              <p>{submittedData.general.email || ''}</p>
-              <p>{submittedData.general.phone || ''}</p>
-            </div>
-            <div id="right-card-education">
-              <h3>Education Experience</h3>
-              <p>{submittedData.education.school || ''}</p>
-              <p>{submittedData.education.study || ''}</p>
-              <p>{submittedData.education.graduationDate || ''}</p>
-            </div>
-            <div id="right-card-practical">
-              <h3>Practical Experience</h3>
-              <p>{submittedData.practical.company || ''}</p>
-              <p>{submittedData.practical.role || ''}</p>
-              <p>{submittedData.practical.year || ''}</p>
-            </div>
+            {Object.entries(sections).map(([key, section]) => (
+              <EditableSection
+                key={key}
+                title={section.title}
+                data={submittedData[key]}
+                fields={section.fields}
+                onSave={(data) => updateSubmittedData(key, data)}
+              />
+            ))}
           </div>
         </div>
       </div>

@@ -168,3 +168,87 @@ input:focus {
   align-items: center;
   justify-content: center;
 }
+
+.right-card-section {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.right-card-section.editing {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 8px;
+}
+
+.inline-edit-form {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inline-form-field {
+  width: 100%;
+}
+
+.inline-form-field input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.757);
+  color: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+}
+
+.inline-form-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.save-btn, .cancel-btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn {
+  background-color: rgba(0, 0, 0);
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: rgba(153, 150, 0, 0.9);
+}
+
+.cancel-btn {
+  background-color: rgba(255, 255, 255, 0.255);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.cancel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.edit-btn {
+  margin-top: 8px;
+  padding: 6px 12px;
+  background-color: rgba(255, 255, 255, 0.255);
+  color: rgba(0, 0, 0, 0.8);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
