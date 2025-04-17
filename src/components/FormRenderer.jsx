@@ -1,11 +1,15 @@
+import EducationForm from "./EducationForm";
+import GeneralForm from "./GeneralForm";
+import PracticalForm from "./PracticalForm";
+
 function FormRenderer({ activeForm }) {
   switch (activeForm) {
     case 'general':
-      return <p>General Information Form</p>;
+      return <GeneralForm />;
     case 'education':
-      return <p>Education Experience Form</p>;
+      return <EducationForm />;
     case 'practical':
-      return <p>Practical Experience Form</p>;
+      return <PracticalForm />;
     default:
       return <p>Please select a form</p>;
   }
