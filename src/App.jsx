@@ -6,6 +6,18 @@ import FormRenderer from './components/FormRenderer.jsx';
 function App() {
   const [activeForm, setActiveForm] = useState('general'); 
   const [activeButton, setActiveButton] = useState('general'); 
+  const [submittedData, setSubmittedData] = useState({
+    general: {},
+    education: {},
+    practical: {},
+  });
+
+  const updateSubmittedData = (formName, data) => {
+    setSubmittedData((prevData) => ({
+      ...prevData,
+      [formName]: data,
+    }));
+  };
 
   return (
     <div className="app">
@@ -17,11 +29,34 @@ function App() {
         />
         <div id="left-card-row">
           <div id="left-card">
-            <FormRenderer key={activeForm} activeForm={activeForm} />
+            <FormRenderer 
+              key={activeForm} 
+              activeForm={activeForm} 
+              updateSubmittedData={updateSubmittedData} 
+            />
           </div>
         </div>
         <div id="right-card-row">
-          <div id="right-card"></div>
+          <div id="right-card">
+            <div>
+              <h3>General Information</h3>
+              <p>{submittedData.general.name || ''}</p>
+              <p>{submittedData.general.email || ''}</p>
+              <p>{submittedData.general.phone || ''}</p>
+            </div>
+            <div>
+              <h3>Education Experience</h3>
+              <p>{submittedData.education.school || ''}</p>
+              <p>{submittedData.education.study || ''}</p>
+              <p>{submittedData.education.graduationDate || ''}</p>
+            </div>
+            <div>
+              <h3>Practical Experience</h3>
+              <p>{submittedData.practical.company || ''}</p>
+              <p>{submittedData.practical.role || ''}</p>
+              <p>{submittedData.practical.year || ''}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

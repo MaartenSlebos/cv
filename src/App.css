@@ -133,3 +133,7 @@ input:focus {
   justify-content: center;
   color: rgba(0, 0, 0, 0.8);
 }
+
+#right-card {
+  flex-direction: column;
+}

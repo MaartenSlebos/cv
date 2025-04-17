@@ -2,14 +2,14 @@ import EducationForm from "./EducationForm";
 import GeneralForm from "./GeneralForm";
 import PracticalForm from "./PracticalForm";
 
-function FormRenderer({ activeForm }) {
+function FormRenderer({ activeForm, updateSubmittedData }) {
   switch (activeForm) {
     case 'general':
-      return <GeneralForm />;
+      return <GeneralForm updateSubmittedData={updateSubmittedData} />;
     case 'education':
-      return <EducationForm />;
+      return <EducationForm updateSubmittedData={updateSubmittedData} />;
     case 'practical':
-      return <PracticalForm />;
+      return <PracticalForm updateSubmittedData={updateSubmittedData} />;
     default:
       return <p>Please select a form</p>;
   }
