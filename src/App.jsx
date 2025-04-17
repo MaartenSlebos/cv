@@ -17,7 +17,7 @@ function App() {
         />
         <div id="left-card-row">
           <div id="left-card">
-            <FormRenderer activeForm={activeForm} />
+            <FormRenderer key={activeForm} activeForm={activeForm} />
           </div>
         </div>
         <div id="right-card-row">

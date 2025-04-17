@@ -1,7 +1,7 @@
 function GeneralForm() {
   return (
     <form className="form-container">
-      <h3 class="form-name">Edit General Information</h3>
+      <h3 className="form-name">Edit General Information</h3>
       <div className="form-grid">
         <label htmlFor="name">Name:</label>
         <input id="name" type="text" placeholder="Enter your name" />

@@ -68,7 +68,7 @@ h3 {
 
 .form-grid {
   display: grid;
-  grid-template-columns: 50px 2fr; 
+  grid-template-columns: 65px 2fr; 
   grid-template-rows: repeat(3, auto); 
   row-gap: 64px; 
   column-gap: 8px;
