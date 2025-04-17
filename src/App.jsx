@@ -1,15 +1,15 @@
 import './App.css';
 import { useState } from 'react';
 import ButtonGroup from './components/ButtonGroup.jsx';
+import FormRenderer from './components/FormRenderer.jsx';
 
 function App() {
-  const [activeForm, setActiveForm] = useState('general'); // Tracks the active form
-  const [activeButton, setActiveButton] = useState('general'); // Tracks the active button
+  const [activeForm, setActiveForm] = useState('general'); 
+  const [activeButton, setActiveButton] = useState('general'); 
 
   return (
     <div className="app">
       <div className="app-container">
-        {/* Pass activeButton and setActiveButton to ButtonGroup */}
         <ButtonGroup
           activeButton={activeButton}
           setActiveForm={setActiveForm}
@@ -17,9 +17,7 @@ function App() {
         />
         <div id="left-card-row">
           <div id="left-card">
-            {activeForm === 'general' && <p>General Information Form</p>}
-            {activeForm === 'education' && <p>Education Experience Form</p>}
-            {activeForm === 'practical' && <p>Practical Experience Form</p>}
+            <FormRenderer activeForm={activeForm} />
           </div>
         </div>
         <div id="right-card-row">

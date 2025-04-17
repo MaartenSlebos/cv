@@ -28,6 +28,7 @@
   padding: 8px 16px;
   background-color: rgba(255, 255, 255, 0.255);
   color: rgba(255, 255, 255, 0.8);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .app-btn:hover {
@@ -70,4 +71,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: rgba(0, 0, 0, 0.8);
 }
