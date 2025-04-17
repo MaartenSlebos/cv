@@ -1,16 +1,18 @@
 export default function PracticalForm() {
     return (
-        <div className="form-container">
-            <h2>Edit Practical Experience</h2>
-            <form>
-                <div className="form-group">
-                    <label htmlFor="school-name">School Name:</label>
-                    <input type="text" id="school-name" name="school-name" />
-
-                    <label htmlFor="school-name">School Name:</label>
-                    <input type="text" id="school-name" name="school-name" />
-                </div>
-            </form>
-        </div>
-    )
+        <form className="form-container">
+          <h3 class="form-name">Edit Practical Experience</h3>
+          <div className="form-grid">
+            <label htmlFor="name">Name:</label>
+            <input id="name" type="text" placeholder="Enter your name" />
+    
+            <label htmlFor="email">Email:</label>
+            <input id="email" type="email" placeholder="Enter your email" />
+    
+            <label htmlFor="phone">Phone:</label>
+            <input id="phone" type="tel" placeholder="Enter your phone number" />
+          </div>
+          <button type="submit" className="submit-btn">Save</button>
+        </form>
+      );
 }

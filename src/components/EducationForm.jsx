@@ -1,19 +1,20 @@
 function EducationForm() {
     return (
-        <div className="form-container">
-            <h2>Edit Education Information</h2>
-            <form>
-                <div className="form-group">
-                    <label htmlFor="school-name">School Name:</label>
-                    <input type="text" id="school-name" name="school-name" />
-
-                    <label htmlFor="school-name">School Name:</label>
-                    <input type="text" id="school-name" name="school-name" />
-                </div>
-            </form>
-
-        </div>
-    )
+        <form className="form-container">
+          <h3 class="form-name">Edit Education Experience</h3>
+          <div className="form-grid">
+            <label htmlFor="school">School:</label>
+            <input id="school" type="text" placeholder="Enter your school" />
+    
+            <label htmlFor="study">Study:</label>
+            <input id="study" type="test" placeholder="Enter your study name" />
+    
+            <label htmlFor="graduationDate">Year:</label>
+            <input id="graduationDate" type="number" placeholder="Enter your graduation year" min="2000" max="2100" />
+          </div>
+          <button type="submit" className="submit-btn">Save</button>
+        </form>
+      );
 }
 
 export default EducationForm;
