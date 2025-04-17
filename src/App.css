@@ -252,3 +252,23 @@ input:focus {
 .edit-btn:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
+
+#github-link-row {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+#github-logo {
+  width: 32px;
+  height: 32px;
+  filter: invert(0.9);
+  margin-right: 6px; 
+}
+
+#github-link {
+  display: flex;
+  align-items: center;
+}

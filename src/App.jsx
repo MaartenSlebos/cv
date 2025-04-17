@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import ButtonGroup from './components/ButtonGroup.jsx';
 import FormRenderer from './components/FormRenderer.jsx';
+import githublogo from './assets/github.png';
 
 function EditableSection({ title, data, fields, onSave }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -127,6 +128,7 @@ function App() {
           setActiveForm={setActiveForm}
           setActiveButton={setActiveButton}
         />
+        <div id="github-link-row"> <a href="https://github.com/MaartenSlebos" target="_blank" rel="noopener noreferrer" id="github-link"><img src={githublogo} id="github-logo"></img></a></div>
         <div id="left-card-row">
           <div id="left-card">
             <FormRenderer
