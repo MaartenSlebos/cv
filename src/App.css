@@ -95,6 +95,13 @@ h3 {
   height: 20px;
 }
 
+/* Override Chrome's autofill background color */
+input:-webkit-autofill {
+  background-color: transparent !important;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.8) !important;
+  box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.757) inset !important;
+}
+
 input:focus {
   outline: none;
   border-color: #999600;
@@ -136,4 +143,28 @@ input:focus {
 
 #right-card {
   flex-direction: column;
+}
+
+#right-card-general {
+  height: 150px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#right-card-education {
+  height: 150px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#right-card-practical {
+  height: 150px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

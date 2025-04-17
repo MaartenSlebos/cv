@@ -38,19 +38,19 @@ function App() {
         </div>
         <div id="right-card-row">
           <div id="right-card">
-            <div>
+            <div id="right-card-general">
               <h3>General Information</h3>
               <p>{submittedData.general.name || ''}</p>
               <p>{submittedData.general.email || ''}</p>
               <p>{submittedData.general.phone || ''}</p>
             </div>
-            <div>
+            <div id="right-card-education">
               <h3>Education Experience</h3>
               <p>{submittedData.education.school || ''}</p>
               <p>{submittedData.education.study || ''}</p>
               <p>{submittedData.education.graduationDate || ''}</p>
             </div>
-            <div>
+            <div id="right-card-practical">
               <h3>Practical Experience</h3>
               <p>{submittedData.practical.company || ''}</p>
               <p>{submittedData.practical.role || ''}</p>
